@@ -7,35 +7,31 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, X } from "lucide-react";
 
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+    <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container align-elements">
-        <div className="flex h-14 sm:h-16 items-center justify-between">
-          {/* Logo - Left Side */}
-          <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+        <div className="flex h-14 sm:h-16 items-center justify-between ">
+          <Link href="/" className="flex items-center space-x-2 flex-shrink-0 ">
             <Image
               src="/chromaiq-logo.png"
               alt="ChromaIQ Logo"
-              width={200}
-              height={200}
+              width={140}
+              height={140}
+              className="invert hover:opacity-90 transition-opacity duration-300"
             />
           </Link>
 
-          {/* Desktop Navigation - Right Side */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-3">
-              
-
-              <Input 
-              type="text" 
-              placeholder="Search Recipes"
-              className="w-48 xl:w-60"
+              <Input
+                type="text"
+                placeholder="Search Recipes"
+                className="w-48 xl:w-60"
               />
-              
+
               <Button
                 variant="ghost"
                 size="sm"
@@ -46,9 +42,6 @@ export default function Navbar() {
             </div>
           </div>
 
-
-
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="sm"
@@ -60,39 +53,19 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden border-t bg-background/95 backdrop-blur">
             <div className="px-4 py-3 space-y-3">
               {/* Mobile Search */}
               <div className="pb-2">
-                <Input 
-                  type="text" 
-                  placeholder="Search Recipes" 
+                <Input
+                  type="text"
+                  placeholder="Search Recipes"
                   className="w-full"
                 />
               </div>
-              
-              {/* Mobile Navigation Links */}
-              <div className="space-y-2">
-                <Button variant="ghost" asChild className="w-full justify-start h-10">
-                  <Link href="/" onClick={() => setIsOpen(false)}>
-                    Home
-                  </Link>
-                </Button>
-                <Button variant="ghost" asChild className="w-full justify-start h-10">
-                  <Link href="/about" onClick={() => setIsOpen(false)}>
-                    About
-                  </Link>
-                </Button>
-                <Button variant="ghost" asChild className="w-full justify-start h-10">
-                  <Link href="/services" onClick={() => setIsOpen(false)}>
-                    Services
-                  </Link>
-                </Button>
-              </div>
-              
-              {/* Mobile Random Recipe Button */}
+
+
               <div className="pt-2">
                 <Button
                   className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:opacity-90"
